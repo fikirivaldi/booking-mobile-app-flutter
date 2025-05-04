@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../saved/screens/saved_provider.dart';
 import '../../../models/property_model.dart';
-import '../../detail/screens/detail_screen.dart';
 import '../../../provider/booking_provider.dart';
 import 'package:intl/intl.dart';
 

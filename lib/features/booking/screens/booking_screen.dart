@@ -80,6 +80,18 @@ class _BookingScreenState extends State<BookingScreen>
                     final subtotal = booking.price * nights;
                     final total = subtotal + 20000;
 
+                    Color statusColor;
+                    switch (booking.status) {
+                      case 'Sudah Dibayar':
+                        statusColor = Colors.green;
+                        break;
+                      case 'Belum Dibayar':
+                        statusColor = Colors.orange;
+                        break;
+                      default:
+                        statusColor = Colors.grey;
+                    }
+
                     return InkWell(
                       onTap: () {
                         Navigator.push(
@@ -90,77 +102,128 @@ class _BookingScreenState extends State<BookingScreen>
                           ),
                         );
                       },
-                      child: Card(
-                        margin: const EdgeInsets.only(bottom: 16, top: 4),
-                        elevation: 3,
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 8,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(16),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.05),
+                              blurRadius: 6,
+                              offset: const Offset(0, 4),
+                            ),
+                          ],
+                        ),
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ListTile(
+                              contentPadding: const EdgeInsets.all(12),
                               leading: ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(12),
                                 child: Image.network(
                                   booking.imageUrl,
-                                  width: 60,
-                                  height: 60,
+                                  width: 64,
+                                  height: 64,
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                              title: Text(booking.propertyName),
-                              subtitle: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const SizedBox(height: 4),
-                                  Text(
-                                    "Status: ${booking.status}",
-                                    style: TextStyle(
-                                      color:
-                                          booking.status == "Sudah Dibayar"
-                                              ? Colors.green
-                                              : booking.status ==
-                                                  "Belum Dibayar"
-                                              ? Colors.orange
-                                              : Colors.grey,
-                                      fontWeight: FontWeight.bold,
+                              title: Text(
+                                booking.propertyName,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              subtitle: Padding(
+                                padding: const EdgeInsets.only(top: 6),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 8,
+                                        vertical: 4,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: statusColor.withOpacity(0.1),
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: Text(
+                                        booking.status,
+                                        style: TextStyle(
+                                          color: statusColor,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 12,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    "Check-In: ${DateFormat('dd MMM yyyy').format(booking.checkIn)}",
-                                  ),
-                                  Text("Total: Rp${NumberFormat('#,###').format(total)}"),
-
-                                ],
+                                    const SizedBox(height: 6),
+                                    Text(
+                                      "Check-In: ${DateFormat('dd MMM yyyy').format(booking.checkIn)}",
+                                    ),
+                                    Text(
+                                      "Total: Rp${NumberFormat('#,###').format(total)}",
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                             if (booking.status == "Sudah Dibayar")
                               Padding(
                                 padding: const EdgeInsets.only(
                                   left: 16,
-                                  bottom: 8,
+                                  bottom: 12,
                                 ),
-                                child: Text(
-                                  "Kode Booking: ${_generateBookingCode(booking.id)}",
-                                  style: const TextStyle(
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                child: Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.qr_code,
+                                      color: Colors.blueAccent,
+                                      size: 18,
+                                    ),
+                                    const SizedBox(width: 6),
+                                    Text(
+                                      "Kode Booking: ${_generateBookingCode(booking.id)}",
+                                      style: const TextStyle(
+                                        color: Colors.blueAccent,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             if (booking.status == "Belum Dibayar")
                               Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 16,
-                                  vertical: 8,
+                                padding: const EdgeInsets.fromLTRB(
+                                  16,
+                                  0,
+                                  16,
+                                  12,
                                 ),
-                                child: ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.pushNamed(
-                                      context,
-                                      '/payment',
-                                      arguments: booking.id,
-                                    );
-                                  },
-                                  child: const Text("Lanjutkan Pembayaran"),
+                                child: SizedBox(
+                                  width: double.infinity,
+                                  child: ElevatedButton.icon(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                        context,
+                                        '/payment',
+                                        arguments: booking.id,
+                                      );
+                                    },
+                                    icon: const Icon(Icons.payment),
+                                    label: const Text("Lanjutkan Pembayaran"),
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.orange,
+                                      foregroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(12),
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               ),
                           ],
@@ -176,13 +239,20 @@ class _BookingScreenState extends State<BookingScreen>
   }
 
   Widget _buildEmptyState() {
-    return const Center(
+    return Center(
       child: Padding(
-        padding: EdgeInsets.all(32),
-        child: Text(
-          "Tidak ada pesanan untuk status ini.",
-          style: TextStyle(fontSize: 16),
-          textAlign: TextAlign.center,
+        padding: const EdgeInsets.all(32),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Icon(Icons.hourglass_empty, size: 64, color: Colors.grey),
+            SizedBox(height: 16),
+            Text(
+              "Tidak ada pesanan untuk status ini.",
+              style: TextStyle(fontSize: 16, color: Colors.grey),
+              textAlign: TextAlign.center,
+            ),
+          ],
         ),
       ),
     );

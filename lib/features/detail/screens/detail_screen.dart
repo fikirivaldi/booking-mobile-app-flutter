@@ -2,13 +2,26 @@ import 'package:flutter/material.dart';
 import '../../../models/property_model.dart';
 import 'package:provider/provider.dart';
 import '../../../models/booking_model.dart';
-import '../../../provider/booking_provider.dart';
 import '../../booking/screens/booking_form_screen.dart';
 import '../../saved/screens/saved_provider.dart';
 import 'package:intl/intl.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class DetailScreen extends StatelessWidget {
+class DetailScreen extends StatefulWidget {
   const DetailScreen({super.key});
+
+  @override
+  State<DetailScreen> createState() => _DetailScreenState();
+}
+
+class _DetailScreenState extends State<DetailScreen> {
+  final PageController _pageController = PageController();
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +53,7 @@ class DetailScreen extends StatelessWidget {
                           ],
                         ),
                         SizedBox(
-                          height: 600,
+                          height: MediaQuery.of(context).size.height * 0.4,
                           child: TabBarView(
                             children: [
                               _buildAboutTab(property),
@@ -68,14 +81,50 @@ class DetailScreen extends StatelessWidget {
   }
 
   Widget _buildHeader(BuildContext context, Property property) {
+    final imageCount =
+        property.gallery.length > 4 ? 4 : property.gallery.length;
+
     return Stack(
       children: [
-        Image.network(
-          property.image,
-          width: double.infinity,
+        SizedBox(
           height: 280,
-          fit: BoxFit.cover,
+          child: Stack(
+            children: [
+              PageView.builder(
+                controller: _pageController,
+                itemCount: imageCount,
+                itemBuilder: (context, index) {
+                  return Image.network(
+                    property.gallery[index],
+                    width: double.infinity,
+                    height: 280,
+                    fit: BoxFit.cover,
+                  );
+                },
+              ),
+              // Dot Indicator di dalam gambar, nempel di bawah
+              Positioned(
+                bottom: 12,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: SmoothPageIndicator(
+                    controller: _pageController,
+                    count: imageCount,
+                    effect: WormEffect(
+                      dotHeight: 8,
+                      dotWidth: 8,
+                      spacing: 6,
+                      activeDotColor: Colors.white,
+                      dotColor: Colors.white60,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
+        // Tombol kembali dan favorit
         SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -157,7 +206,7 @@ class DetailScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _buildPropertyFeatures(property),
-          const SizedBox(height: 16),
+          const SizedBox(height: 28),
           Text(
             "Description",
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
@@ -176,7 +225,7 @@ class DetailScreen extends StatelessWidget {
 
   Widget _buildGalleryTab(Property property) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
       child: GridView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
@@ -189,7 +238,7 @@ class DetailScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           return ClipRRect(
             borderRadius: BorderRadius.circular(8),
-            child: Image.network(property.gallery[index], fit: BoxFit.cover),
+            // child: Image.network(property.gallery[index], fit: BoxFit.cover), // tempat gambar GALLERY
           );
         },
       ),

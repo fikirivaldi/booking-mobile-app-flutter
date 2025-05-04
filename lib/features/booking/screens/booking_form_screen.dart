@@ -46,35 +46,34 @@ class _BookingFormScreenState extends State<BookingFormScreen> {
   }
 
   void _submitBooking() {
-  if (checkIn == null || checkOut == null || nameController.text.isEmpty) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Harap lengkapi semua data.')),
+    if (checkIn == null || checkOut == null || nameController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Harap lengkapi semua data.')),
+      );
+      return;
+    }
+
+    final booking = widget.booking.copyWith(
+      id: DateTime.now().toIso8601String(), // generate ID saat submit
+      checkIn: checkIn!,
+      checkOut: checkOut!,
+      roomType: roomType,
+      smoking: smoking == "Smoking",
+      guestName: nameController.text,
+      guestPhone: phoneController.text,
+      guestEmail: emailController.text,
     );
-    return;
+
+    Provider.of<BookingProvider>(context, listen: false).addBooking(booking);
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => PaymentScreen(),
+        settings: RouteSettings(arguments: booking.id),
+      ),
+    );
   }
-
-  final booking = widget.booking.copyWith(
-    id: DateTime.now().toIso8601String(), // generate ID saat submit
-    checkIn: checkIn!,
-    checkOut: checkOut!,
-    roomType: roomType,
-    smoking: smoking == "Smoking",
-    guestName: nameController.text,
-    guestPhone: phoneController.text,
-    guestEmail: emailController.text,
-  );
-
-  Provider.of<BookingProvider>(context, listen: false).addBooking(booking);
-
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (_) => PaymentScreen(),
-      settings: RouteSettings(arguments: booking.id),
-    ),
-  );
-}
-
 
   @override
   Widget build(BuildContext context) {
@@ -85,123 +84,208 @@ class _BookingFormScreenState extends State<BookingFormScreen> {
         foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Pilih Tanggal",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: ListTile(
-                    title: const Text("Check-In"),
-                    subtitle: Text(
-                      checkIn == null
-                          ? 'Pilih Tanggal'
-                          : DateFormat('dd MMM yyyy').format(checkIn!),
-                    ),
-                    onTap: () => _selectDate(true),
-                  ),
+            _sectionTitle("Pilih Tanggal"),
+            Card(
+              elevation: 2,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 8,
+                  horizontal: 12,
                 ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: ListTile(
-                    title: const Text("Check-Out"),
-                    subtitle: Text(
-                      checkOut == null
-                          ? 'Pilih Tanggal'
-                          : DateFormat('dd MMM yyyy').format(checkOut!),
+                child: Row(
+                  children: [
+                    _buildDateTile(
+                      "Check-In",
+                      checkIn,
+                      () => _selectDate(true),
                     ),
-                    onTap: () => _selectDate(false),
-                  ),
+                    const SizedBox(width: 8),
+                    _buildDateTile(
+                      "Check-Out",
+                      checkOut,
+                      () => _selectDate(false),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
-            const Divider(),
+            const SizedBox(height: 20),
 
-            const Text(
-              "Tipe Kamar",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Row(
-              children:
-                  ["Twin", "Double"].map((type) {
-                    return Expanded(
-                      child: RadioListTile(
-                        title: Text(type),
-                        value: type,
-                        groupValue: roomType,
-                        onChanged: (value) {
-                          setState(() => roomType = value!);
-                        },
-                      ),
-                    );
-                  }).toList(),
-            ),
+            _sectionTitle("Tipe Kamar"),
+            _buildRadioGroup(["Twin", "Double"], roomType, (val) {
+              setState(() => roomType = val);
+            }),
 
-            const Text(
-              "Preferensi Merokok",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Row(
-              children:
-                  ["Smoking", "Non-Smoking"].map((val) {
-                    return Expanded(
-                      child: RadioListTile(
-                        title: Text(val),
-                        value: val,
-                        groupValue: smoking,
-                        onChanged: (value) {
-                          setState(() => smoking = value!);
-                        },
-                      ),
-                    );
-                  }).toList(),
-            ),
+            _sectionTitle("Preferensi Merokok"),
+            _buildRadioGroup(["Smoking", "Non-Smoking"], smoking, (val) {
+              setState(() => smoking = val);
+            }),
 
-            const Divider(),
-
-            const Text(
-              "Data Pemesan",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            TextField(
+            const SizedBox(height: 20),
+            _sectionTitle("Data Pemesan"),
+            const SizedBox(height: 8),
+            _buildTextField(
               controller: nameController,
-              decoration: const InputDecoration(labelText: "Nama Lengkap"),
+              label: "Nama Lengkap",
+              icon: Icons.person,
             ),
-            TextField(
+            _buildTextField(
               controller: phoneController,
-              keyboardType: TextInputType.phone,
-              decoration: const InputDecoration(labelText: "Nomor Telepon"),
+              label: "Nomor Telepon",
+              icon: Icons.phone,
+              inputType: TextInputType.phone,
             ),
-            TextField(
+            _buildTextField(
               controller: emailController,
-              keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(labelText: "Email"),
+              label: "Email",
+              icon: Icons.email,
+              inputType: TextInputType.emailAddress,
             ),
 
-            const SizedBox(height: 16),
-            const Text(
-              "⚠️ Wajib membawa kartu identitas saat check-in.\n💵 Deposit sebesar Rp100.000 akan dibayarkan di hotel.",
-              style: TextStyle(color: Colors.orange),
+            const SizedBox(height: 20),
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.orange.shade50,
+                border: Border.all(color: Colors.orange),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: const Text(
+                "⚠️ Wajib membawa kartu identitas saat check-in.\n💵 Deposit sebesar Rp100.000 akan dibayarkan di hotel.",
+                style: TextStyle(
+                  color: Colors.orange,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
             ),
 
             const SizedBox(height: 24),
             SizedBox(
               width: double.infinity,
-              child: ElevatedButton(
+              child: ElevatedButton.icon(
                 onPressed: _submitBooking,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue, // Warna latar belakang
-                  foregroundColor: Colors.white, // Warna teks
+                icon: const Icon(Icons.arrow_forward),
+                label: const Text(
+                  "Lanjut ke Pembayaran",
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                child: const Text("Lanjut ke Pembayaran", style: TextStyle(fontWeight: FontWeight.bold)),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _sectionTitle(String text) => Padding(
+    padding: const EdgeInsets.only(bottom: 8),
+    child: Text(
+      text,
+      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+    ),
+  );
+
+  Widget _buildDateTile(String label, DateTime? date, VoidCallback onTap) {
+    return Expanded(
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey.shade300),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(label, style: const TextStyle(fontWeight: FontWeight.w600)),
+              const SizedBox(height: 4),
+              Row(
+                children: [
+                  const Icon(
+                    Icons.calendar_today,
+                    size: 16,
+                    color: Colors.grey,
+                  ),
+                  const SizedBox(width: 6),
+                  Text(
+                    date == null
+                        ? 'Pilih Tanggal'
+                        : DateFormat('dd MMM yyyy').format(date),
+                    style: TextStyle(
+                      color: date == null ? Colors.grey : Colors.black,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildRadioGroup(
+    List<String> options,
+    String groupValue,
+    void Function(String) onChanged,
+  ) {
+    return Row(
+      children:
+          options.map((option) {
+            return Expanded(
+              child: Card(
+                elevation: 1,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: RadioListTile<String>(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  title: Text(option),
+                  value: option,
+                  groupValue: groupValue,
+                  onChanged: (val) => onChanged(val!),
+                ),
+              ),
+            );
+          }).toList(),
+    );
+  }
+
+  Widget _buildTextField({
+    required TextEditingController controller,
+    required String label,
+    required IconData icon,
+    TextInputType inputType = TextInputType.text,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: TextField(
+        controller: controller,
+        keyboardType: inputType,
+        decoration: InputDecoration(
+          labelText: label,
+          prefixIcon: Icon(icon),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
         ),
       ),
     );

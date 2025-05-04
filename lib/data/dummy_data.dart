@@ -13,13 +13,17 @@ final List<Property> dummyProperties = [
     bathrooms: 1,
     area: 45,
     reviewsCount: 12,
-    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    description: 'Nikmati kenyamanan menginap di hotel kami yang modern dan strategis. Dilengkapi dengan fasilitas lengkap, mulai dari kamar yang nyaman hingga layanan terbaik, sempurna untuk perjalanan bisnis atau liburan keluarga.',
     gallery: [
-
+      'https://i0.wp.com/visit.kalteng.go.id/wp-content/uploads/2023/08/Luwansa.jpg?resize=1024%2C801&ssl=1',
+      'https://jalanjalanyuk.co.id/wp-content/uploads/2024/01/11.-Ini-10-Fasilitas-Kamar-Hotel-untuk-Tamu-dan-Fungsinya1-1.jpg',
+      'https://backend.parador-hotels.com/wp-content/uploads/2023/04/Ruang-Apa-Saja-yang-Ada-di-Hotel.webp',
+      'https://nabatransport.com/wp-content/uploads/2023/12/Meeting-Room-Ciputra-Source-by-hotel.info_.webp',
     ],
     reviews: [
-      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
-      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+      {'user': 'Tio', 'comment': 'Tempatnya nyaman sekali, next saya pasti ke sini lagi kalo ke bandung.'},
+      {'user': 'Panca', 'comment': 'Pelayanan sangat tebaik staffnya ramah.'},
+      {'user': 'Fiki', 'comment': 'Ruangan kurang bersih dan ada kecoa di kamar mandi.'},
     ],
   ),
   Property(
@@ -34,13 +38,18 @@ final List<Property> dummyProperties = [
     bathrooms: 3,
     area: 120,
     reviewsCount: 12,
-    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    description: 'Nikmati kenyamanan menginap di hotel kami yang modern dan strategis. Dilengkapi dengan fasilitas lengkap, mulai dari kamar yang nyaman hingga layanan terbaik, sempurna untuk perjalanan bisnis atau liburan keluarga.',
     gallery: [
+      'https://images.trvl-media.com/lodging/10000000/9700000/9695700/9695675/2cbc4ea4.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill',
+      'https://www.onassis-hardware.com/wp-content/uploads/2023/10/ezgif.com-gif-maker-49.webp',
+      'https://jalanjalanyuk.co.id/wp-content/uploads/2024/01/kamar-mandi-hotel.jpg',
+      'https://backend.parador-hotels.com/wp-content/uploads/2023/04/Ruangan-Di-Dalam-Hotel-1024x576.webp',
 
     ],
     reviews: [
-      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
-      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+      {'user': 'Tio', 'comment': 'Tempatnya nyaman sekali, next saya pasti ke sini lagi kalo ke bandung.'},
+      {'user': 'Panca', 'comment': 'Pelayanan sangat tebaik staffnya ramah.'},
+      {'user': 'Fiki', 'comment': 'Ruangan kurang bersih dan ada kecoa di kamar mandi.'},
     ],
   ),
   Property(
@@ -55,13 +64,17 @@ final List<Property> dummyProperties = [
     bathrooms: 3,
     area: 120,
     reviewsCount: 12,
-    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    description: 'Nikmati kenyamanan menginap di hotel kami yang modern dan strategis. Dilengkapi dengan fasilitas lengkap, mulai dari kamar yang nyaman hingga layanan terbaik, sempurna untuk perjalanan bisnis atau liburan keluarga.',
     gallery: [
-
+      'https://ik.imagekit.io/tvlk/apr-asset/Ixf4aptF5N2Qdfmh4fGGYhTN274kJXuNMkUAzpL5HuD9jzSxIGG5kZNhhHY-p7nw/hotel/asset/67818132-0fe4a69965f0f6ce71e5e304d4c3b066.jpeg?tr=q-80,c-at_max,w-740,h-500&_src=imagekit',
+      'https://jalanjalanyuk.co.id/wp-content/uploads/2024/01/Televisi-dan-Hiburan.jpg',
+      'https://nusadayaacademy.com/wp-content/uploads/2023/08/Fasilitas-Hotel-Restoran.jpg',
+      'https://awsimages.detik.net.id/community/media/visual/2022/06/16/kamar-hotel_169.jpeg?w=1200',
     ],
     reviews: [
-      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
-      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+      {'user': 'Tio', 'comment': 'Tempatnya nyaman sekali, next saya pasti ke sini lagi kalo ke bandung.'},
+      {'user': 'Panca', 'comment': 'Pelayanan sangat tebaik staffnya ramah.'},
+      {'user': 'Fiki', 'comment': 'Ruangan kurang bersih dan ada kecoa di kamar mandi.'},
     ],
   ),
   Property(
@@ -76,13 +89,16 @@ final List<Property> dummyProperties = [
     bathrooms: 1,
     area: 45,
     reviewsCount: 12,
-    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    description: 'Nikmati kenyamanan menginap di hotel kami yang modern dan strategis. Dilengkapi dengan fasilitas lengkap, mulai dari kamar yang nyaman hingga layanan terbaik, sempurna untuk perjalanan bisnis atau liburan keluarga.',
     gallery: [
-
+      'https://aw-d.tripcdn.com/images/1mc5o12000hmba7h40525.jpg',
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/632013732.jpg?k=2db78f8cde3353e81d83aef93f1af8b35173579570cadf97fb7b5bdf2136d225&o=&hp=1',
+      'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1fWA9tteI4Kq3-unkphsyY4C8Ha3mqb1l-8-Pufe1RVFCvnsRRq8CRGzyxzltUKBSRQ53_KjjdZ0DMdBKAgMCftnsZ_92lEzNOuAzGZyNy2nWKlU43ECVx1YoBpgzx2SIPu4504a632ssAHtzg-XBBrgFXVQXiRgLpmt4IhcED9cn4Bbqv5gtW7RiK1pt/w640-h360/model-j-hotel-jakarta.jpeg.png',
     ],
     reviews: [
-      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
-      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+      {'user': 'Tio', 'comment': 'Tempatnya nyaman sekali, next saya pasti ke sini lagi kalo ke bandung.'},
+      {'user': 'Panca', 'comment': 'Pelayanan sangat tebaik staffnya ramah.'},
+      {'user': 'Fiki', 'comment': 'Ruangan kurang bersih dan ada kecoa di kamar mandi.'},
     ],
   ),
   Property(
@@ -90,20 +106,24 @@ final List<Property> dummyProperties = [
     name: 'Regala Skycity',
     type: 'Apartment',
     location: 'Lembang',
-    price: 1200000,
+    price: 2200000,
     rating: 4.8,
     image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/419574065.jpg?k=b92a4cd8818189ade50f546b7c3d286e9d99e3c4cbfbc1d24143a8f68f09fb78&o=&hp=1',
     bedrooms: 4,
     bathrooms: 3,
     area: 120,
     reviewsCount: 12,
-    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    description: 'Apartemen kami menyediakan kenyamanan rumah dengan fasilitas modern dan ruang yang luas. Cocok untuk tamu yang menginginkan lebih banyak privasi dan kebebasan, baik untuk perjalanan jangka pendek atau panjang.',
     gallery: [
-
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/419574065.jpg?k=b92a4cd8818189ade50f546b7c3d286e9d99e3c4cbfbc1d24143a8f68f09fb78&o=&hp=1',
+      'https://images.trvl-media.com/lodging/89000000/88940000/88936500/88936467/8333307a.jpg?impolicy=fcrop&w=1200&h=800&p=1&q=medium',
+      'https://cdn.regalhotel.com/regala-skycity-hotel/-/media/Regala-Skycity/Restaurants/The_Jade_720x475.jpg?h=475&w=720&rev=fc7c464eea3f4bafbb4848473b0e14cb&hash=B7091A7F7C43C5F382D99147A03D46CD',
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/419574466.jpg?k=3179ea990c5a64324a247fc0bc4a9013339c439a16ee7d04b1c47fd8a010f52c&o=&hp=1',
     ],
     reviews: [
-      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
-      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+      {'user': 'Tio', 'comment': 'Tempatnya nyaman sekali, next saya pasti ke sini lagi kalo ke bandung.'},
+      {'user': 'Panca', 'comment': 'Pelayanan sangat tebaik staffnya ramah.'},
+      {'user': 'Fiki', 'comment': 'Ruangan kurang bersih dan ada kecoa di kamar mandi.'},
     ],
   ),
   Property(
@@ -111,20 +131,25 @@ final List<Property> dummyProperties = [
     name: 'Luxury Villa',
     type: 'Villa',
     location: 'Lembang',
-    price: 1900000,
+    price: 1700000,
     rating: 4.8,
     image: 'https://www.adriaticluxuryvillas.com/uploads/images/villa-di-polisane-zadar-dalmatia-1716977474706.jpg',
     bedrooms: 4,
     bathrooms: 3,
     area: 120,
     reviewsCount: 12,
-    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    description: 'Rasakan kenyamanan dan privasi di villa mewah kami. Dengan suasana yang tenang dan fasilitas pribadi, villa ini adalah pilihan ideal untuk liburan romantis atau keluarga, menawarkan pengalaman menginap yang lebih eksklusif.',
     gallery: [
+      'https://www.adriaticluxuryvillas.com/uploads/images/villa-di-polisane-zadar-dalmatia-1716977474706.jpg',
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/353844686.jpg?k=6a93ed55cba417adece7f760e194df117abfcaaad0ded04c9f9b0bac5228dbf2&o=&hp=1',
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/436754438.jpg?k=f8edcce25e50439876882c5a6417e812571779bc35ba0f322b398078645b0cc0&o=&hp=1',
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/410475419.jpg?k=1c222b17d7ff05dca8a10e40d85d58a5552d8d127973739ce1bf42ee1d4c91c1&o=&hp=1',
 
     ],
     reviews: [
-      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
-      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+      {'user': 'Tio', 'comment': 'Tempatnya nyaman sekali, next saya pasti ke sini lagi kalo ke bandung.'},
+      {'user': 'Panca', 'comment': 'Pelayanan sangat tebaik staffnya ramah.'},
+      {'user': 'Fiki', 'comment': 'Ruangan kurang bersih dan ada kecoa di kamar mandi.'},
     ],
   ),
   Property(
@@ -132,20 +157,25 @@ final List<Property> dummyProperties = [
     name: 'Namaskar Villa',
     type: 'Villa',
     location: 'Lembang',
-    price: 1200000,
+    price: 1900000,
     rating: 4.8,
     image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/542522517.jpg?k=7b6a70b95eefaff8a2bd124c8b41720b4a6d8b60a773c09e3f83196960d5332c&o=&hp=1',
     bedrooms: 4,
     bathrooms: 3,
     area: 120,
     reviewsCount: 12,
-    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    description: 'Rasakan kenyamanan dan privasi di villa mewah kami. Dengan suasana yang tenang dan fasilitas pribadi, villa ini adalah pilihan ideal untuk liburan romantis atau keluarga, menawarkan pengalaman menginap yang lebih eksklusif.',
     gallery: [
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/542522517.jpg?k=7b6a70b95eefaff8a2bd124c8b41720b4a6d8b60a773c09e3f83196960d5332c&o=&hp=1',
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/542522463.jpg?k=fbba899934786c213b3246b7255b0d8564c168bfe7b4a3196fd7689be829e04b&o=&hp=1',
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/543035083.jpg?k=461526b19c007a10388841eb9ee166593863e1a0471200805967d1bb77c5d560&o=&hp=1',
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/542522487.jpg?k=3bb804d7f6b0635982a9c736c7d319a37cacd4ffa05914b5091aaebacf5cf3a8&o=&hp=1',
 
     ],
     reviews: [
-      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
-      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+      {'user': 'Tio', 'comment': 'Tempatnya nyaman sekali, next saya pasti ke sini lagi kalo ke bandung.'},
+      {'user': 'Panca', 'comment': 'Pelayanan sangat tebaik staffnya ramah.'},
+      {'user': 'Fiki', 'comment': 'Ruangan kurang bersih dan ada kecoa di kamar mandi.'},
     ],
   ),
   Property(
@@ -160,13 +190,17 @@ final List<Property> dummyProperties = [
     bathrooms: 3,
     area: 120,
     reviewsCount: 12,
-    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    description: 'Rasakan kenyamanan dan privasi di villa mewah kami. Dengan suasana yang tenang dan fasilitas pribadi, villa ini adalah pilihan ideal untuk liburan romantis atau keluarga, menawarkan pengalaman menginap yang lebih eksklusif.',
     gallery: [
-
+      'https://miro.medium.com/v2/resize:fit:3840/1*csHi6jT1h7T3Xyqf4yowow.png',
+      'https://bulgari-resort-bali-uluwatu.hotelmix.id/data/Photos/OriginalPhoto/16431/1643151/1643151296/Bvlgari-Resort-Bali-Uluwatu-Exterior.JPEG',
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/643139548.jpg?k=810e47aa902f099bd16f67bdf12983f3796c55f3c803cf469a2dc9dfdec0519c&o=&hp=1',
+      '',
     ],
     reviews: [
-      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
-      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+      {'user': 'Tio', 'comment': 'Tempatnya nyaman sekali, next saya pasti ke sini lagi kalo ke bandung.'},
+      {'user': 'Panca', 'comment': 'Pelayanan sangat tebaik staffnya ramah.'},
+      {'user': 'Fiki', 'comment': 'Ruangan kurang bersih dan ada kecoa di kamar mandi.'},
     ],
   ),
   Property(
@@ -181,13 +215,17 @@ final List<Property> dummyProperties = [
     bathrooms: 3,
     area: 120,
     reviewsCount: 12,
-    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    description: 'Apartemen kami menyediakan kenyamanan rumah dengan fasilitas modern dan ruang yang luas. Cocok untuk tamu yang menginginkan lebih banyak privasi dan kebebasan, baik untuk perjalanan jangka pendek atau panjang.',
     gallery: [
-
+      'https://www.cleonparkapartment.com/app/uploads/sites/720/2022/10/Banner-Cleon-Park.webp',
+      'https://hydeliving.s3.ap-southeast-3.amazonaws.com/uploads/1669027944226.webp',
+      'https://hydeliving.s3.ap-southeast-3.amazonaws.com/uploads/1669027944360.webp',
+      'https://assets-a1.kompasiana.com/items/album/2023/03/13/whatsapp-image-2023-03-13-at-11-03-52-640e92ab08a8b510a4415c73.jpeg?t=o&v=1200',
     ],
     reviews: [
-      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
-      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+      {'user': 'Tio', 'comment': 'Tempatnya nyaman sekali, next saya pasti ke sini lagi kalo ke bandung.'},
+      {'user': 'Panca', 'comment': 'Pelayanan sangat tebaik staffnya ramah.'},
+      {'user': 'Fiki', 'comment': 'Ruangan kurang bersih dan ada kecoa di kamar mandi.'},
     ],
   ),
   Property(
@@ -202,13 +240,17 @@ final List<Property> dummyProperties = [
     bathrooms: 3,
     area: 120,
     reviewsCount: 12,
-    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    description: 'Apartemen kami menyediakan kenyamanan rumah dengan fasilitas modern dan ruang yang luas. Cocok untuk tamu yang menginginkan lebih banyak privasi dan kebebasan, baik untuk perjalanan jangka pendek atau panjang.',
     gallery: [
-
+      'https://lbcdn.airpaz.com/hotelimages/668098/akasa-bsd-2-bedroom-creative-apartment-c87b9e62ddd03fc2536abd0087ec9130.jpg',
+      'https://www.thekahyangansolo.com/images/blog/apa-itu-apartemen-studio.jpg',
+      'https://thepromenade.id/wp-content/uploads/2022/08/menata-ruangan-apartemen-dengan-warna-senada.jpg',
+      'https://dwijayakarya.com/wp-content/uploads/2021/04/akasa-712-x-470-px.jpg',
     ],
     reviews: [
-      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
-      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+      {'user': 'Tio', 'comment': 'Tempatnya nyaman sekali, next saya pasti ke sini lagi kalo ke bandung.'},
+      {'user': 'Panca', 'comment': 'Pelayanan sangat tebaik staffnya ramah.'},
+      {'user': 'Fiki', 'comment': 'Ruangan kurang bersih dan ada kecoa di kamar mandi.'},
     ],
   ),
   Property(
@@ -223,13 +265,17 @@ final List<Property> dummyProperties = [
     bathrooms: 3,
     area: 120,
     reviewsCount: 12,
-    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    description: 'Apartemen kami menyediakan kenyamanan rumah dengan fasilitas modern dan ruang yang luas. Cocok untuk tamu yang menginginkan lebih banyak privasi dan kebebasan, baik untuk perjalanan jangka pendek atau panjang.',
     gallery: [
-
+      'https://cdn.brighton.co.id/Uploads/Images/7407074/FNDp4OsC/Artikel-7.webp',
+      'https://damaiputra.com/wp-content/uploads/2024/11/Apartemen-studio-Kota-Harapan-Indah.jpeg',
+      'https://nuansapondokkelapa.id/wp-content/uploads/2024/06/Unit-Apartemen-2-Kamar-di-Jakarta-1024x683.jpg',
+      'https://picture.rumah123.com/r123-images/1620x1080-fit/customer/1784209/0eb9f10788821c6423d0211aa20abd44.jpg',
     ],
     reviews: [
-      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
-      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+      {'user': 'Tio', 'comment': 'Tempatnya nyaman sekali, next saya pasti ke sini lagi kalo ke bandung.'},
+      {'user': 'Panca', 'comment': 'Pelayanan sangat tebaik staffnya ramah.'},
+      {'user': 'Fiki', 'comment': 'Ruangan kurang bersih dan ada kecoa di kamar mandi.'},
     ],
   ),
   Property(
@@ -244,13 +290,17 @@ final List<Property> dummyProperties = [
     bathrooms: 3,
     area: 120,
     reviewsCount: 12,
-    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    description: 'Rasakan kenyamanan dan privasi di villa mewah kami. Dengan suasana yang tenang dan fasilitas pribadi, villa ini adalah pilihan ideal untuk liburan romantis atau keluarga, menawarkan pengalaman menginap yang lebih eksklusif.',
     gallery: [
-
+      'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEisf-3n744rbXqtl0Jzvz1Ex7NXsejIRb1vruPlqM_1I4Q1t0l92Xt5Cc67f9h6YQsxqWJXN5Vq0hn-TOVZHKhfE684bFbvyWDoP0KwzKCBYCI7OV8SSYrNtNxzaVwZlwTqva93pz7AT5pi1pxBOKYbLfR1_4nG8PVl149sdgGj2LA6nCwLyReLbXNw/w1000/IMG-20230101-WA0027.jpg',
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/568971386.jpg?k=800c13effc3a3ac4ed3cca66a6d7f298835559721a03a44495a53f04502b09fd&o=&hp=1',
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/568831577.jpg?k=1514e39fec8afc43026df0a7f0573753a9a388208201714badddc893435ce6b1&o=&hp=1',
+      'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJPHzkspEA_jooXDi5pAnoomLPaABgeBDBb7wKXGLohNQR9vGt0wOi_D-lUzEBccOoC9RBjGXPyzeWQttm0_a9ar8wURUv_YE9wF7cTMJQCaQ3aURgXMRoQq2bus3xeD-cDl_pGeRf6Y9sRa9Dx6j7uKWE1tqZw1SziJdz7L81LTWuF7fr3ljiejvR/s1024/IMG-20230101-WA0026.jpg,'
     ],
     reviews: [
-      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
-      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+      {'user': 'Tio', 'comment': 'Tempatnya nyaman sekali, next saya pasti ke sini lagi kalo ke bandung.'},
+      {'user': 'Panca', 'comment': 'Pelayanan sangat tebaik staffnya ramah.'},
+      {'user': 'Fiki', 'comment': 'Ruangan kurang bersih dan ada kecoa di kamar mandi.'},
     ],
   ),
   Property(
@@ -265,13 +315,18 @@ final List<Property> dummyProperties = [
     bathrooms: 3,
     area: 120,
     reviewsCount: 12,
-    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    description: 'Rasakan kenyamanan dan privasi di villa mewah kami. Dengan suasana yang tenang dan fasilitas pribadi, villa ini adalah pilihan ideal untuk liburan romantis atau keluarga, menawarkan pengalaman menginap yang lebih eksklusif.',
     gallery: [
+      'https://lh3.googleusercontent.com/p/AF1QipNR8aAKXLgiGAjRtigbcW7Rc3SEgfwHDLGH8qGa=s0',
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/503055442.jpg?k=e6d7eb9ed01d8282b15246a94c9fcfed315ddef50bfffd227d995d57a615336b&o=&hp=1',
+      'https://cf.bstatic.com/xdata/images/hotel/max1024x768/562714604.jpg?k=2590c8caed7a7a18ffb743b00f97b97b7e5ff03fe2e287893136492b2f679192&o=&hp=1',
+      'https://a0.muscache.com/pictures/miso/Hosting-1206118291146748511/original/68ef20c7-699c-4c8d-a177-04b1ce2bfdfa.jpeg',
 
     ],
     reviews: [
-      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
-      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+      {'user': 'Tio', 'comment': 'Tempatnya nyaman sekali, next saya pasti ke sini lagi kalo ke bandung.'},
+      {'user': 'Panca', 'comment': 'Pelayanan sangat tebaik staffnya ramah.'},
+      {'user': 'Fiki', 'comment': 'Ruangan kurang bersih dan ada kecoa di kamar mandi.'},
     ],
   ),
   Property(
@@ -286,13 +341,18 @@ final List<Property> dummyProperties = [
     bathrooms: 3,
     area: 120,
     reviewsCount: 12,
-    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    description: 'Rasakan kenyamanan dan privasi di villa mewah kami. Dengan suasana yang tenang dan fasilitas pribadi, villa ini adalah pilihan ideal untuk liburan romantis atau keluarga, menawarkan pengalaman menginap yang lebih eksklusif.',
     gallery: [
+      'https://jkldiary.wordpress.com/wp-content/uploads/2018/11/img-20180720-wa0047-01.jpeg',
+      'https://www.theanvayabali.com/wp-content/uploads/2023/01/1440x768-1.jpg',
+      'https://awsimages.detik.net.id/community/media/visual/2023/05/07/plataran-komodo-resort-spa_169.jpeg?w=650',
+      'https://i0.wp.com/hotelopedia.id/wp-content/uploads/2018/12/IMG-20181227-WA0005.jpg?resize=960%2C720&ssl=1',
 
     ],
     reviews: [
-      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
-      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+      {'user': 'Tio', 'comment': 'Tempatnya nyaman sekali, next saya pasti ke sini lagi kalo ke bandung.'},
+      {'user': 'Panca', 'comment': 'Pelayanan sangat tebaik staffnya ramah.'},
+      {'user': 'Fiki', 'comment': 'Ruangan kurang bersih dan ada kecoa di kamar mandi.'},
     ],
   ),
   Property(
@@ -307,13 +367,18 @@ final List<Property> dummyProperties = [
     bathrooms: 3,
     area: 120,
     reviewsCount: 12,
-    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    description: 'Rasakan kenyamanan dan privasi di villa mewah kami. Dengan suasana yang tenang dan fasilitas pribadi, villa ini adalah pilihan ideal untuk liburan romantis atau keluarga, menawarkan pengalaman menginap yang lebih eksklusif.',
     gallery: [
+      'https://www.kayak.co.id/rimg/himg/b7/71/25/expedia_group-3526615-128916206-268232.jpg?width=1366&height=768&crop=true',
+      'https://www.kayak.co.id/rimg/himg/cd/1e/c2/expedia_group-3526615-94064244-281856.jpg?width=836&height=607&crop=true',
+      'https://images.trvl-media.com/lodging/17000000/16510000/16508200/16508136/3638c1b7.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill',
+      'https://s3-eu-west-1.amazonaws.com/jet2blog/production/_900x506_crop_center-center_none/HER_81022_Stella_Island_Luxury_Resort__Spa_1220_06_RGB-136-DPI-For-Web.jpg',
 
     ],
     reviews: [
-      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
-      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+      {'user': 'Tio', 'comment': 'Tempatnya nyaman sekali, next saya pasti ke sini lagi kalo ke bandung.'},
+      {'user': 'Panca', 'comment': 'Pelayanan sangat tebaik staffnya ramah.'},
+      {'user': 'Fiki', 'comment': 'Ruangan kurang bersih dan ada kecoa di kamar mandi.'},
     ],
   ),
 

@@ -45,6 +45,7 @@ dependencies:
   lucide_icons: ^0.257.0
   firebase_core: ^3.13.0
   firebase_auth: ^5.5.2
+  smooth_page_indicator: ^1.0.0+2
 
 
 dev_dependencies:
