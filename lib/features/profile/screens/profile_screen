@@ -1,0 +1,229 @@
+import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import '../../../core/constants/colors.dart'; // Sesuaikan kalau kamu pakai constants colors
+
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
+
+  void _logout(BuildContext context) async {
+    final shouldLogout = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Logout'),
+        content: const Text('Are you sure you want to logout?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('No'),
+          ),
+          ElevatedButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: const Text('Yes'),
+          ),
+        ],
+      ),
+    );
+
+    if (shouldLogout ?? false) {
+      await FirebaseAuth.instance.signOut();
+      Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
+
+    return Scaffold(
+      backgroundColor: AppColors.bgColor,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: AppColors.primaryColor,
+        elevation: 0,
+        title: const Text('Akun Saya', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.percent, color: Colors.white),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.chat_bubble_outline, color: Colors.white),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.settings, color: Colors.white),
+            onPressed: () {},
+          ),
+        ],
+      ),
+      body: ListView(
+        children: [
+          Container(
+            color: Colors.white,
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 35,
+                  backgroundColor: Colors.grey[300],
+                  backgroundImage: user?.photoURL != null
+                      ? NetworkImage(user!.photoURL!)
+                      : null,
+                  child: user?.photoURL == null
+                      ? const Icon(Icons.person, size: 40, color: Colors.white)
+                      : null,
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        user?.displayName ?? 'Guest User',
+                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        user?.email ?? 'Masuk dengan Google',
+                        style: const TextStyle(color: Colors.grey),
+                      ),
+                      const SizedBox(height: 4),
+                      const Text(
+                        '0 Post',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    // TODO: Navigate to Edit Profile
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.primaryColor,
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                  child: const Text('Lihat Profil Saya'),
+                ),
+              ],
+            ),
+          ),
+          const Divider(height: 1),
+          _buildMembershipCard(),
+          const SizedBox(height: 16),
+          _buildSectionTitle('TPayLater'),
+          _buildSimpleCard(
+            title: 'TPayLater',
+            subtitle: 'Ada promo spesial pengguna baru!',
+            onTap: () {},
+          ),
+          const SizedBox(height: 16),
+          _buildSectionTitle('Pilihan Pembayaran Saya'),
+          _buildSimpleCard(
+            title: 'Pembayaran',
+            subtitle: 'Atur semua pembayaran yang disimpan',
+            onTap: () {},
+          ),
+          const SizedBox(height: 16),
+          _buildSectionTitle('Rewards Saya'),
+          _buildSimpleCard(
+            title: '0 Points',
+            subtitle: 'Tukar poin dengan kupon! Ketuk untuk pelajari lebih lanjut.',
+            badge: 'New!',
+            onTap: () {},
+          ),
+          _buildSimpleCard(
+            title: 'Mission Saya',
+            subtitle: 'Selesaikan lebih banyak Mission, dapatkan lebih banyak reward!',
+            onTap: () {},
+          ),
+          const SizedBox(height: 32),
+          Center(
+            child: TextButton(
+              onPressed: () => _logout(context),
+              child: const Text('Logout', style: TextStyle(color: Colors.red)),
+            ),
+          ),
+          const SizedBox(height: 24),
+          const Center(
+            child: Text('App Version 1.0.0', style: TextStyle(color: Colors.grey)),
+          ),
+          const SizedBox(height: 16),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMembershipCard() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: const Color(0xFFd7a579),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Row(
+        children: const [
+          Icon(Icons.emoji_events, color: Colors.white),
+          SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              'Kamu adalah Bronze Priority',
+              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSectionTitle(String title) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Text(
+        title,
+        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+
+  Widget _buildSimpleCard({
+    required String title,
+    required String subtitle,
+    required VoidCallback onTap,
+    String? badge,
+  }) {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: ListTile(
+        title: Row(
+          children: [
+            Text(title),
+            if (badge != null) ...[
+              const SizedBox(width: 8),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                decoration: BoxDecoration(
+                  color: Colors.yellow,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Text(
+                  badge,
+                  style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ],
+        ),
+        subtitle: Text(subtitle),
+        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+        onTap: onTap,
+      ),
+    );
+  }
+}
