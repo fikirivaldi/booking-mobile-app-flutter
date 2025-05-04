@@ -123,6 +123,8 @@ class _BookingFormScreenState extends State<BookingFormScreen> {
               setState(() => roomType = val);
             }),
 
+            const SizedBox(height: 20),
+
             _sectionTitle("Preferensi Merokok"),
             _buildRadioGroup(["Smoking", "Non-Smoking"], smoking, (val) {
               setState(() => smoking = val);
