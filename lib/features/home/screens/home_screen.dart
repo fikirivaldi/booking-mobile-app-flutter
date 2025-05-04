@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../core/constants/colors.dart';
 import '../../../data/dummy_data.dart';
 import '../widgets/property_card.dart';
+import '../../explore/screens/explore_screen.dart';
 import 'category_property_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,12 +23,30 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 16),
             _buildSection("Recommended Property", context),
             const SizedBox(height: 16),
-            _buildSection("Nearby Property", context),
-            const SizedBox(height: 80),
+            const SizedBox(height: 16),
+
+            Text(
+              "All Properties",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 16),
+            GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: dummyProperties.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 12,
+                crossAxisSpacing: 12,
+                childAspectRatio: 0.75,
+              ),
+              itemBuilder: (context, index) {
+                return PropertyCard(property: dummyProperties[index]);
+              },
+            ),
           ],
         ),
       ),
-
     );
   }
 
@@ -43,7 +62,10 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text("Location", style: TextStyle(fontSize: 12, color: Colors.grey)),
+              const Text(
+                "Location",
+                style: TextStyle(fontSize: 12, color: Colors.grey),
+              ),
               Row(
                 children: const [
                   Icon(Icons.location_on, size: 18, color: Colors.blue),
@@ -129,41 +151,47 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _buildCategoryIcons(BuildContext context) {
-  final categories = [
-    {'icon': Icons.villa, 'label': 'Hotel'},
-    {'icon': Icons.apartment, 'label': 'Apartment'},
-    {'icon': Icons.house, 'label': 'Villa'},
-    {'icon': Icons.cottage, 'label': 'Resort'},
-  ];
+    final categories = [
+      {'icon': Icons.villa, 'label': 'Hotel'},
+      {'icon': Icons.apartment, 'label': 'Apartment'},
+      {'icon': Icons.house, 'label': 'Villa'},
+      {'icon': Icons.cottage, 'label': 'Resort'},
+    ];
 
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: categories.map((cat) {
-      return GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (_) => CategoryPropertyScreen(category: cat['label'] as String),
-            ),
-          );
-        },
-        child: Column(
-          children: [
-            CircleAvatar(
-              radius: 24,
-              backgroundColor: Colors.blue[50],
-              child: Icon(cat['icon'] as IconData, color: Colors.blue),
-            ),
-            const SizedBox(height: 4),
-            Text(cat['label'] as String, style: const TextStyle(fontSize: 12)),
-          ],
-        ),
-      );
-    }).toList(),
-  );
-}
-
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children:
+          categories.map((cat) {
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (_) => CategoryPropertyScreen(
+                          category: cat['label'] as String,
+                        ),
+                  ),
+                );
+              },
+              child: Column(
+                children: [
+                  CircleAvatar(
+                    radius: 24,
+                    backgroundColor: Colors.blue[50],
+                    child: Icon(cat['icon'] as IconData, color: Colors.blue),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    cat['label'] as String,
+                    style: const TextStyle(fontSize: 12),
+                  ),
+                ],
+              ),
+            );
+          }).toList(),
+    );
+  }
 
   Widget _buildSection(String title, BuildContext context) {
     final properties = dummyProperties;
@@ -174,8 +202,19 @@ class HomeScreen extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-            TextButton(onPressed: () {}, child: const Text("See all")),
+            Text(
+              title,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const ExploreScreen()),
+                );
+              },
+              child: const Text("See all"),
+            ),
           ],
         ),
         const SizedBox(height: 8),
@@ -183,7 +222,8 @@ class HomeScreen extends StatelessWidget {
           height: 240,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
-            itemCount: properties.length,
+            itemCount: properties.take(5).length,
+
             itemBuilder: (context, index) {
               return PropertyCard(property: properties[index]);
             },
@@ -193,5 +233,4 @@ class HomeScreen extends StatelessWidget {
       ],
     );
   }
-
 }

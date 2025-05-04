@@ -169,6 +169,153 @@ final List<Property> dummyProperties = [
       {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
     ],
   ),
+  Property(
+    id: '9',
+    name: 'Cleon Park Apatrment',
+    type: 'Apartment',
+    location: 'Bandung',
+    price: 1400000,
+    rating: 4.8,
+    image: 'https://www.cleonparkapartment.com/app/uploads/sites/720/2022/10/Banner-Cleon-Park.webp',
+    bedrooms: 4,
+    bathrooms: 3,
+    area: 120,
+    reviewsCount: 12,
+    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    gallery: [
+
+    ],
+    reviews: [
+      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
+      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+    ],
+  ),
+  Property(
+    id: '10',
+    name: 'Akasa BDS Apatrment',
+    type: 'Apartment',
+    location: 'Bandung',
+    price: 1400000,
+    rating: 4.8,
+    image: 'https://lbcdn.airpaz.com/hotelimages/668098/akasa-bsd-2-bedroom-creative-apartment-c87b9e62ddd03fc2536abd0087ec9130.jpg',
+    bedrooms: 4,
+    bathrooms: 3,
+    area: 120,
+    reviewsCount: 12,
+    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    gallery: [
+
+    ],
+    reviews: [
+      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
+      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+    ],
+  ),
+  Property(
+    id: '11',
+    name: 'Gateaway Pasteur',
+    type: 'Apartment',
+    location: 'Bandung',
+    price: 1400000,
+    rating: 4.8,
+    image: 'https://cdn.brighton.co.id/Uploads/Images/7407074/FNDp4OsC/Artikel-7.webp',
+    bedrooms: 4,
+    bathrooms: 3,
+    area: 120,
+    reviewsCount: 12,
+    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    gallery: [
+
+    ],
+    reviews: [
+      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
+      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+    ],
+  ),
+  Property(
+    id: '12',
+    name: 'SK Villa Dago',
+    type: 'Villa',
+    location: 'Bandung',
+    price: 1600000,
+    rating: 4.8,
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEisf-3n744rbXqtl0Jzvz1Ex7NXsejIRb1vruPlqM_1I4Q1t0l92Xt5Cc67f9h6YQsxqWJXN5Vq0hn-TOVZHKhfE684bFbvyWDoP0KwzKCBYCI7OV8SSYrNtNxzaVwZlwTqva93pz7AT5pi1pxBOKYbLfR1_4nG8PVl149sdgGj2LA6nCwLyReLbXNw/w1000/IMG-20230101-WA0027.jpg',
+    bedrooms: 4,
+    bathrooms: 3,
+    area: 120,
+    reviewsCount: 12,
+    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    gallery: [
+
+    ],
+    reviews: [
+      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
+      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+    ],
+  ),
+  Property(
+    id: '13',
+    name: 'Florenz Villa',
+    type: 'Villa',
+    location: 'Bandung',
+    price: 1900000,
+    rating: 4.8,
+    image: 'https://lh3.googleusercontent.com/p/AF1QipNR8aAKXLgiGAjRtigbcW7Rc3SEgfwHDLGH8qGa=s0',
+    bedrooms: 4,
+    bathrooms: 3,
+    area: 120,
+    reviewsCount: 12,
+    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    gallery: [
+
+    ],
+    reviews: [
+      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
+      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+    ],
+  ),
+  Property(
+    id: '15',
+    name: 'The Green Forest Resort',
+    type: 'Villa',
+    location: 'Bandung',
+    price: 1500000,
+    rating: 4.8,
+    image: 'https://jkldiary.wordpress.com/wp-content/uploads/2018/11/img-20180720-wa0047-01.jpeg',
+    bedrooms: 4,
+    bathrooms: 3,
+    area: 120,
+    reviewsCount: 12,
+    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    gallery: [
+
+    ],
+    reviews: [
+      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
+      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+    ],
+  ),
+  Property(
+    id: '16',
+    name: 'Stella Island Luxury',
+    type: 'Villa',
+    location: 'Bandung',
+    price: 1500000,
+    rating: 4.8,
+    image: 'https://www.kayak.co.id/rimg/himg/b7/71/25/expedia_group-3526615-128916206-268232.jpg?width=1366&height=768&crop=true',
+    bedrooms: 4,
+    bathrooms: 3,
+    area: 120,
+    reviewsCount: 12,
+    description: 'A beautiful villa located near the beach with stunning sunset views.',
+    gallery: [
+
+    ],
+    reviews: [
+      {'user': 'John Doe', 'comment': 'Amazing place! Will come back.'},
+      {'user': 'Jane Smith', 'comment': 'Very clean and beautiful view.'},
+    ],
+  ),
 
   // Optional: tambahkan lebih banyak data jika mau kategori lebih ramai
 ];
